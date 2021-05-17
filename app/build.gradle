@@ -19,6 +19,11 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 29
+    //added this to solve the error “Invoke-customs are only supported starting with Android O (--min-api 26)”
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "com.example.android.firebaseui_login_sample"
         minSdkVersion 19
@@ -54,6 +59,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
+    // add firebase authentication dependency
+    implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
 
     testImplementation 'junit:junit:4.12'
 }
