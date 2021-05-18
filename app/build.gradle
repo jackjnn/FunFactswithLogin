@@ -16,6 +16,8 @@
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+//added to solve "unknown reference error for MainFragmentDirections"
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion 29
@@ -53,8 +55,13 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha02"
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha02'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
-    implementation "androidx.navigation:navigation-ui-ktx:2.0.0"
+
+    //first two commented out, last 2 added to solved MainFragmentDirections bug
+    //implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
+    //implementation "androidx.navigation:navigation-ui-ktx:2.0.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
     implementation 'androidx.preference:preference-ktx:1.1.0-rc01'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     // Import the Firebase BoM
